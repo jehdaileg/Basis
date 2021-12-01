@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.index');
 })->name('dashboard');
 
 
@@ -76,6 +76,8 @@ Route::get('/brands/edit/{id}', [BrandController::class, 'editBrand'])->name('br
 
 Route::put('/brands/edit/{id}', [BrandController::class, 'updateBrand'])->name('brand.update');
 
+
+Route::get('/user-logout', [BrandController::class, 'logout'])->name('user.logout');
 
 
 

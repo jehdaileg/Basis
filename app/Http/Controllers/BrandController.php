@@ -9,6 +9,8 @@ use App\Models\Brand;
 
 use Illuminate\Support\Carbon;
 
+use Illuminate\Support\Facades\Auth;
+
 
 class BrandController extends Controller
 {
@@ -191,4 +193,15 @@ public function deleteP($id)
 
 
 }
+
+
+public function logout()
+{
+    Auth::logout();
+
+    return redirect()->route('login');
+}
+
+
+
 }
