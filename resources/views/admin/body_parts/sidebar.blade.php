@@ -45,13 +45,45 @@
                           
                             <li  class="active" >
                               <a class="sidenav-item-link" href="index.html">
-                                <span class="nav-text">Ecommerce</span>
+                                <span class="nav-text">Home</span>
                                 
                               </a>
                             </li>
                           
-                        
 
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="{{ route('brands.all') }}">
+                                <span class="nav-text">Brands</span>
+                                
+                              </a>
+                            </li>
+                          
+
+
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="{{ route('sliders.all') }}">
+                                <span class="nav-text">Sliders</span>
+                                
+                              </a>
+                            </li>
+
+
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="{{ route('admin.contact') }}">
+                                <span class="nav-text">Messages Users</span>
+                                
+                              </a>
+                            </li>
+                          
+                          
+
+
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="index.html">
+                                <span class="nav-text">Category</span>
+                                
+                              </a>
+                            </li>
                         
                         
                           

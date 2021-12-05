@@ -1,9 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Hey... {{ Auth::user()->name }}
-        </h2>
-    </x-slot>
+@extends('admin.admin_base')
+
+@section('main_content')
+
 
     <div class="py-12">
 
@@ -73,4 +71,5 @@
 
     </div>
 </div>
-</x-app-layout>
+
+@stop

@@ -8,6 +8,10 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\BrandController;
 
+use App\Http\Controllers\SliderController;
+
+use App\Http\Controllers\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +24,10 @@ use App\Http\Controllers\BrandController;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    $brandsClients = DB::table('brands')->get();
+
+    return view('home', compact('brandsClients'));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -73,11 +80,34 @@ Route::get('/brands/deleteP/{id}', [BrandController::class, 'deleteP']);
 
 Route::get('/brands/edit/{id}', [BrandController::class, 'editBrand'])->name('brand.edit');
 
-
 Route::put('/brands/edit/{id}', [BrandController::class, 'updateBrand'])->name('brand.update');
+
+Route::get('/sliders/all', [SliderController::class, 'index'])->name('sliders.all');
+
+Route::get('/slider/create', [SliderController::class, 'create'])->name('slider.create');
+
+Route::post('/slider/store', [SliderController::class, 'store'])->name('slider.store');
+
+Route::get('/slider/SoftDelete/{id}' , [SliderController::class, 'SoftDelete']);
+
+Route::get('/slider/restore/{id}', [SliderController::class, 'restore']);
+
+Route::get('/slider/deleteP/{id}', [SliderController::class, 'deleteP']);
+
+Route::get('/slider-edit/{id}', [SliderController::class, 'edit']);
+
+Route::put('/slider/update/{id}', [SliderController::class, 'update']);
 
 
 Route::get('/user-logout', [BrandController::class, 'logout'])->name('user.logout');
+
+Route::get('/contact/view', [ContactController::class, 'getContact'])->name('contact.get');
+
+Route::post('/contact/SendMessage', [ContactController::class, 'sendMessage'])->name('messageSend');
+
+Route::get('/contact/admin', [ContactController::class, 'contactAdmin'])->name('admin.contact');
+
+
 
 
 
