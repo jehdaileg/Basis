@@ -72,7 +72,15 @@ class BrandController extends Controller
 
     ]);
 
-      return back()->with('success', 'Great adding Brand');
+     $notification = array(
+
+        'message' => 'Great adding Brand',
+
+        'alert-type' => 'success'
+
+     );
+
+      return back()->with($notification);
 
 
   }
@@ -139,7 +147,14 @@ public function updateBrand($id, Request $request)
 
         ]);
 
-        return redirect()->route('brands.all')->with('success', 'Great adding Brand');
+        $notification = array(
+
+            'message' => 'Great Edited Successfully',
+            'alert-type' => 'info'
+
+        );
+
+        return redirect()->route('brands.all')->with($notification);
 
     }
     else 
@@ -152,7 +167,15 @@ public function updateBrand($id, Request $request)
 
     ]);
 
-       return redirect()->route('brands.all')->with('success', 'Great adding Brand');
+       $notification = array(
+
+            'message' => 'Great Edited Successfully',
+            'alert-type' => 'info'
+
+        );
+
+
+       return redirect()->route('brands.all')->with($notification);
 
 
   }
@@ -167,7 +190,15 @@ public function SoftDelete($id)
 
     $delete = $brand->delete();
 
-    return back()->with('success', 'Brand Sent to trash successfully');
+      $notification = array(
+
+            'message' => 'Great Edited Successfully',
+            'alert-type' => 'info'
+
+        );
+
+
+    return back()->with($notification);
 }
 
 
@@ -175,7 +206,15 @@ public function restore($id)
 {
     $restore = Brand::withTrashed()->find($id)->restore();
 
-    return back()->with('success', 'Brand restored successfully');
+     $notification = array(
+
+            'message' => 'Brand restored successfully',
+            'alert-type' => 'success'
+
+        );
+
+
+    return back()->with($notification);
 }
 
 public function deleteP($id)
@@ -189,7 +228,14 @@ public function deleteP($id)
 
     $deleteBP = Brand::onlyTrashed()->find($id)->forceDelete();
 
-    return back()->with('success', 'Brand Deleted successfully');
+     $notification = array(
+
+            'message' => 'Brand Deleted successfully',
+            'alert-type' => 'success'
+
+        );
+
+    return back()->with($notification);
 
 
 }

@@ -23,6 +23,7 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}" />
 
+ 
   
 
   <!-- FAVICON -->
@@ -37,6 +38,12 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="{{ asset('backend/assets/plugins/nprogress/nprogress.js') }}"></script>
+
+   <!-- toaster js with css link -->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
 </head>
 
 
@@ -234,6 +241,47 @@
 <script src="{{ asset('backend/assets/js/map.js') }}"></script>
 <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 
+<!-- toaster js with js link -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+ 
+<!-- toaster js Set up for all the admin views !-->
+
+<script>
+
+  @if(Session::has('message'))
+
+    var type = "{{ Session::get('alert-type', 'info') }}"
+
+    switch(type)
+    {
+      case 'info':
+
+      toastr.info(" {{ Session::get('message') }} ");
+
+      break;
+
+      case 'success':
+
+      toastr.success(" {{ Session::get('message') }} ");
+
+      break;
+
+      case 'error':
+
+      toastr.error(" {{ Session::get('message') }} ");
+
+      break;
+
+      case 'warning':
+
+      toastr.warning(" {{ Session::get('message') }} ");
+    }
+
+
+  @endif 
+  
+</script>
 
 
 

@@ -34,7 +34,15 @@ class CategoryController extends Controller
 
         Category::create($validated_datas);
 
-        return back()->with('success', 'Great adding category');
+         $notification = array(
+
+        'message' => 'Great adding Category',
+
+        'alert-type' => 'success'
+
+     );
+
+        return back()->with($notification);
     }
 
 
@@ -64,7 +72,15 @@ class CategoryController extends Controller
 
         $category->update($validated_datas);
 
-        return redirect()->route('cat.all')->with('success', 'Cat updated Successfully');
+           $notification = array(
+
+        'message' => 'Cat updated Successfully',
+
+        'alert-type' => 'info'
+
+     );
+
+        return redirect()->route('cat.all')->with($notification);
     }
 
 
@@ -72,7 +88,15 @@ class CategoryController extends Controller
     {
         $delete = Category::find($id)->delete();
 
-        return back()->with('success', 'Data Sent to Trash Successfully');
+           $notification = array(
+
+        'message' => 'Cat Sended into trash',
+
+        'alert-type' => 'info'
+
+     );
+
+        return back()->with($notification);
     }
 
 
@@ -80,7 +104,16 @@ class CategoryController extends Controller
     {
         $delete = Category::withTrashed()->find($id)->restore();
 
-        return back()->with('success', 'Data Restored Successfully');
+
+           $notification = array(
+
+        'message' => 'Data Restored Successfully',
+
+        'alert-type' => 'success'
+
+     );
+
+        return back()->with($notification);
     }
 
 
@@ -88,6 +121,14 @@ class CategoryController extends Controller
     {
         $delete = Category::onlyTrashed()->find($id)->forceDelete();
 
-        return back()->with('success', 'Data Deleted Successfully');
+           $notification = array(
+
+        'message' => 'Data Deleted Successfully',
+
+        'alert-type' => 'success'
+
+     );
+
+        return back()->with($notification);
     }
 }
