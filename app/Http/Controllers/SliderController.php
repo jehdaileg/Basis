@@ -66,7 +66,12 @@ class SliderController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return redirect()->route('sliders.all')->with('success', 'Great adding Slider');
+        $notification = array(
+            'message' => 'Great adding Slider',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('sliders.all')->with($notification);
 
 
     }
