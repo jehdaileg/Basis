@@ -59,6 +59,12 @@
                   <span class="brand-name">Sleek Dashboard</span>
                 </a>
               </div>
+
+              @if(session('success'))
+
+                <div class="alert alert-success">{{ session('success') }}</div>
+
+              @endif
             </div>
             <div class="card-body p-5">
 

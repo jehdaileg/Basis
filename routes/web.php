@@ -12,6 +12,8 @@ use App\Http\Controllers\SliderController;
 
 use App\Http\Controllers\ContactController;
 
+use App\Http\Controllers\ProfilUserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -107,6 +109,15 @@ Route::post('/contact/SendMessage', [ContactController::class, 'sendMessage'])->
 
 Route::get('/contact/admin', [ContactController::class, 'contactAdmin'])->name('admin.contact');
 
+
+Route::get('/change/password', [ProfilUserController::class, 'changePassword'])->name('user.change.password');
+
+
+Route::post('/change/password', [ProfilUserController::class, 'updatePassword'])->name('user.update.password');   
+
+Route::get('/update/profil', [ProfilUserController::class, 'setProfile'])->name('user.update.profil');
+
+Route::post('/update/profil', [ProfilUserController::class, 'updateProfil'])->name('update.profil');
 
 
 
